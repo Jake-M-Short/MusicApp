@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import "../styles/global.css";
 
+const API_KEY = process.env.REACT_APP_LASTFM_API_KEY;
+
 const GenrePage = () => {
     const { id } = useParams();
     const [topSongs, setTopSongs] = useState([]);
@@ -9,7 +11,6 @@ const GenrePage = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [searchQuery, setSearchQuery] = useState("");  // New state for search query
-    const API_KEY = process.env.REACT_APP_LASTFM_API_KEY;
 
     useEffect(() => {
         const fetchData = async () => {
