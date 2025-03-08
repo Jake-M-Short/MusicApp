@@ -45,9 +45,6 @@ const GenrePage = () => {
         fetchData();
     }, [id]);
 
-    const handleSearchChange = (event) => {
-        setSearchQuery(event.target.value);
-    };
 
     const filteredSongs = topSongs.filter((song) =>
         song.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
