@@ -10,7 +10,6 @@ const GenrePage = () => {
     const [topArtists, setTopArtists] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
-    const [searchQuery, setSearchQuery] = useState("");  // New state for search query
 
     useEffect(() => {
         const fetchData = async () => {
