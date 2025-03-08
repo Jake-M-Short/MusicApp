@@ -10,6 +10,7 @@ const GenrePage = () => {
     const [topArtists, setTopArtists] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
+    const [searchQuery, setSearchQuery] = useState("");  // New state for search query
 
     useEffect(() => {
         const fetchData = async () => {
@@ -44,6 +45,9 @@ const GenrePage = () => {
         fetchData();
     }, [id]);
 
+    const handleSearchChange = (event) => {
+        setSearchQuery(event.target.value);
+    };
 
     const filteredSongs = topSongs.filter((song) =>
         song.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -69,6 +73,15 @@ const GenrePage = () => {
             </Link>
 
             <h1>Top {id} Songs and Artists</h1>
+            <div className="search-container">
+                <input
+                    type="text"
+                    placeholder="Search tracks or artists"
+                    value={searchQuery}
+                    onChange={handleSearchChange}
+                    className="search-input"
+                />
+            </div>
             <h2>Top 10 Artists</h2>
             <ul>
                 {filteredArtists.length > 0 ? (
