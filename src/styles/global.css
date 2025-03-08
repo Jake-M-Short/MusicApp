@@ -12,7 +12,7 @@ body {
     position: absolute;
     top: 20px;
     left: 0px;
-    width: 200px; /* Adjust the size */
+    width: 300px; /* Adjust the size */
     height: auto;
     cursor: pointer;
 }
@@ -24,12 +24,19 @@ body {
     position: relative;
 }
 
-h1, h2 {
+h1 {
     color: #1DB954;
+    font-size: 50px;
+}
+
+h2 {
+    color: #1DB954;
+    font-size: 40px;
 }
 
 span {
     color: #1DB954;
+    font-size: 30px;
 }
 
 .search-container {
@@ -159,4 +166,24 @@ a:hover {
 
 div.link {
     color: #1DB954;
+}
+
+.favorite-button {
+    background-color: #1DB954; /* Spotify Green */
+    color: #282828;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.favorite-button:hover {
+    background-color: #17a74b; /* Darker Green */
+    transform: scale(1.05); /* Slight enlargement on hover */
+}
+
+.favorite-button:active {
+    transform: scale(0.95); /* Click effect */
 }

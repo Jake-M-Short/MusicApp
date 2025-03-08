@@ -105,7 +105,7 @@ function ArtistPage() {
                         {getTopTrackInPlaylist(track.url) ? (
                             <small>⭐</small>
                         ) : (
-                            <button onClick={() => handleAddFavorite(track)}>
+                            <button className="favorite-button" onClick={() => handleAddFavorite(track)}>
                                 Add to public playlist
                             </button>
                         )}

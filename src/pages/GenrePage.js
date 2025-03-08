@@ -73,15 +73,21 @@ const GenrePage = () => {
             </Link>
 
             <h1>Top {id} Songs and Artists</h1>
-            <div className="search-container">
-                <input
-                    type="text"
-                    placeholder="Search tracks or artists"
-                    value={searchQuery}
-                    onChange={handleSearchChange}
-                    className="search-input"
-                />
-            </div>
+            <h2>Top 10 Artists</h2>
+            <ul>
+                {filteredArtists.length > 0 ? (
+                    filteredArtists.map((artist, index) => (
+                        <li key={index}>
+                            <Link to={`/artist/${encodeURIComponent(artist.name)}`}>
+                                <strong>{artist.name}</strong>
+                            </Link>
+                        </li>
+                    ))
+                ) : (
+                    <p>No artists found.</p>
+                )}
+            </ul>
+
             <h2>Top 10 Tracks</h2>
             <ul>
                 {filteredSongs.length > 0 ? (
@@ -97,21 +103,6 @@ const GenrePage = () => {
                     ))
                 ) : (
                     <p>No tracks found.</p>
-                )}
-            </ul>
-
-            <h2>Top 10 Artists</h2>
-            <ul>
-                {filteredArtists.length > 0 ? (
-                    filteredArtists.map((artist, index) => (
-                        <li key={index}>
-                            <Link to={`/artist/${encodeURIComponent(artist.name)}`}>
-                                <strong>{artist.name}</strong>
-                            </Link>
-                        </li>
-                    ))
-                ) : (
-                    <p>No artists found.</p>
                 )}
             </ul>
         </div>

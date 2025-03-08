@@ -34,6 +34,6 @@ export async function getPlaylist() {
 
         return playlistSongs;
     } catch (e) {
-        console.error("Error obteniendo la playlist:", e);
+        console.error("Error obtaining the playlist:", e);
     }
 }
