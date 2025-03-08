@@ -1,3 +1,5 @@
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
@@ -5,7 +7,7 @@ import ArtistPage from "./pages/ArtistPage";
 import GenrePage from "./pages/GenrePage";
 import SearchResultsPage from "./pages/SearchResultsPage"; // Import new search page
 import SongPage from "./pages/SongPage"; // Import the SongPage component
-
+import './firestore';
 function App() {
     return (
         <Router>

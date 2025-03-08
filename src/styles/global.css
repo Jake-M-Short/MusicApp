@@ -28,6 +28,10 @@ h1, h2 {
     color: #1DB954;
 }
 
+span {
+    color: #1DB954;
+}
+
 .search-container {
     display: flex;
     justify-content: center;
@@ -153,4 +157,6 @@ a:hover {
     padding: 20px;
 }
 
-
+div.link {
+    color: #1DB954;
+}

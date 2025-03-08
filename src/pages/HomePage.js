@@ -1,10 +1,16 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "../styles/global.css"; // Correct path to your global CSS
+import "../styles/global.css";
+import {getPlaylist} from "../database"; // Correct path to your global CSS
 
 function HomePage() {
     const [query, setQuery] = useState("");
+    const [playlist, setPlaylist] = useState([]);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        getPlaylist().then(data => setPlaylist(data));
+    }, []);
 
     const handleSearch = (e) => {
         e.preventDefault();
@@ -41,7 +47,15 @@ function HomePage() {
             </div>
 
             <h2>Your Playlist</h2>
-            <p>No songs added yet.</p>
+            {playlist && playlist.length === 0 ? (
+                <p>No songs added yet.</p>
+            ) : (
+                playlist && playlist.map((track, index) => (
+                    <div key={track.id}>
+                        <span>{index + 1}. {track.artist} - {track.name}</span>
+                    </div>
+                ))
+            )}
         </div>
     );
 }
